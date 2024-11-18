@@ -1,0 +1,42 @@
+.userCard {
+  display: flex;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  /* Aligns details and buttons side-by-side */
+}
+
+.userCardDet {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.cardButtons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center; /* Centers buttons vertically */
+}
+
+.userDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #690164;
+}
+
+.actions {
+  grid-column: span 3;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
