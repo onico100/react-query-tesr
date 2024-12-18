@@ -144,7 +144,7 @@ export default function Cars() {
           <p>Error loading cars.</p>
         ) : (
           <div className={styles.carList}>
-            {cars?.map((car) => (
+            {cars?.map((car: any) => (
               <CarCard
                 key={car._id}
                 car={car}
