@@ -1,37 +1,31 @@
-import http from "@/Services/http";
+// services/carsService.ts
+import http from "./http";
+import { Car } from "@/types/car";
 
-export async function getAllCars() {
-  try {
-    const response = await http.get("/cars/get");
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+// Get all cars
+export async function getAllCars(): Promise<Car[]> {
+  const response = await http.get("/cars/get");
+  console.log(222);
+  return response.data;
 }
 
-export async function createCar(car: any) {
-  try {
-    const response = await http.post("/cars/insert", car);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+// Insert a new car
+export async function insertCar(car: Car): Promise<{ message: string }> {
+  const response = await http.post("/cars/insert", car);
+  return response.data;
 }
 
-export async function updateCar(id: string, car: any) {
-  try {
-    const response = await http.patch("/cars/update", { ...car, _id: id });
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+// Update an existing car
+export async function updateCar(
+  id: string,
+  updatedCar: Partial<Car>
+): Promise<{ message: string }> {
+  const response = await http.patch(`/cars/update`, { id, ...updatedCar });
+  return response.data;
 }
 
-export async function deleteCar(id: string) {
-  try {
-    const response = await http.delete(`/cars`);
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+// Delete a car
+export async function deleteCar(id: string): Promise<{ message: string }> {
+  const response = await http.delete(`/cars/delete?id=${id}`);
+  return response.data;
 }
