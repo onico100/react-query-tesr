@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Car } from "@/types/car";
 import {
   getAllCars,
-  createCar,
+  insertCar,
   updateCar,
   deleteCar,
 } from "@/Services/carsService";
@@ -26,7 +26,7 @@ export default function Cars() {
   });
 
   const insertCarMutation = useMutation({
-    mutationFn: createCar,
+    mutationFn: insertCar,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cars"] });
     },
